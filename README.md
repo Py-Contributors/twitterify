@@ -24,7 +24,7 @@ check more at [MIT License](/LICENSE)
 
 ## Author
 
-- Project: Cybel - Twitterify
+- Project: Twitterify
 - Author: CodePerfectPlus
 - Language: Python
 - Github: [GitHub](https://github.com/codePerfectPlus)
