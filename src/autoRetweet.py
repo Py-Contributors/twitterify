@@ -1,7 +1,7 @@
 import tweepy
-import json
 
-from src.config import logging
+from config import create_api
+from config import logging
 
 class AutoRetweeter(tweepy.StreamListener):
     def __init__(self, api):
@@ -28,3 +28,14 @@ class AutoRetweeter(tweepy.StreamListener):
     def on_error(self, status):
         logging.error(status)
 
+
+def main(keywords: list):
+    api = create_api()
+    tweet_listener = AutoRetweeter(api)
+    stream = tweepy.Stream(api.auth, tweet_listener)
+    
+    stream.filter(track=keywords, languages=['en'])
+
+if __name__ == '__main__':
+    keywords = ["#Python", "#machinelearning", "#deeplearning", "#artificialintelligence"]
+    main(keywords)

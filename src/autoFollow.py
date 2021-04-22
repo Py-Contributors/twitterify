@@ -1,8 +1,8 @@
 import time
 import tweepy
 
-from config import create_api
-from config import logging
+from src.config import create_api
+from src.config import logging
 
 def auto_follow(api):
     logging.info("Starting following Script")
