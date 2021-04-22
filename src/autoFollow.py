@@ -1,8 +1,7 @@
 import time
 import tweepy
 
-from src.config import create_api
-from src.config import logging
+from config import logging, create_api
 
 def auto_follow(api):
     logging.info("Starting following Script")
@@ -14,7 +13,7 @@ def auto_follow(api):
 def main():
     api = create_api()
     while True:
-        follow_followers(api)
+        auto_follow(api)
         logging.info("Waiting...")
         time.sleep(60*60)
 
