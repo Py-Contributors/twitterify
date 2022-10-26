@@ -8,17 +8,12 @@ def auto_follow(api):
     logging.info("Starting following Script")
     for follower in tweepy.Cursor(api.followers).items():
         if not follower.following:
-            logging.info(f"Following {follower.name}")
             follower.follow()
-
-
-def main():
-    api = create_api()
-    while True:
-        auto_follow(api)
-        logging.info("Waiting...")
-        time.sleep(60 * 60)
+            followers_count = follower.followers_count
+            print(f"Following {follower.name} with {followers_count} followers")
+            time.sleep(60)
 
 
 if __name__ == '__main__':
-    main()
+    api = create_api()
+    auto_follow(api)
