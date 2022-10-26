@@ -10,8 +10,7 @@ logging.basicConfig(format="%(levelname)s - %(asctime)s - %(name)s - %(message)s
                     datefmt='%d/%m/%Y %I:%M:%S %p',
                     handlers=[
                         logging.FileHandler(os.path.join('dev.log')),
-                        logging.StreamHandler()
-                        ])
+                        logging.StreamHandler()])
 
 logging.info("Starting logging...")
 

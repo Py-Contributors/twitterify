@@ -17,7 +17,7 @@ def main():
     while True:
         auto_follow(api)
         logging.info("Waiting...")
-        time.sleep(60*60)
+        time.sleep(60 * 60)
 
 
 if __name__ == '__main__':
