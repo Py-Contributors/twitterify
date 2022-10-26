@@ -1,4 +1,3 @@
-from multiprocessing import AuthenticationError
 import os
 import tweepy
 import logging
@@ -33,6 +32,6 @@ def create_api():
         api.verify_credentials()
         logging.info("Authentication OK")
     except Exception:
-        raise AuthenticationError("Error creating API")
+        raise Exception("Error during authentication, check your credentials")
     logging.info("API Created")
     return api
