@@ -3,16 +3,19 @@ import tweepy
 import logging
 from dotenv import load_dotenv
 
-load_dotenv()
 
-logging.basicConfig(filename='app.log', 
-                    format='%(levelname)s: %(asctime)s %(message)s',
-                    datefmt='%m/%d/%Y %I:%M:%S %p', 
-                    level=logging.INFO)
+logging.basicConfig(format="%(levelname)s - %(asctime)s - %(name)s - %(message)s",
+                    encoding="utf-8",
+                    datefmt='%d/%m/%Y %I:%M:%S %p',
+                    handlers=[
+                        logging.FileHandler(os.path.join('dev.log')),
+                        logging.StreamHandler()])
 
-logging.info("\n\n\nNewLog Starting...")
+logging.info("Starting logging...")
+
 
 def create_api():
+    load_dotenv()
     API_KEY = os.environ['API_KEY']
     API_SECRET_KEY = os.environ['API_SECRET_KEY']
     ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
@@ -21,15 +24,14 @@ def create_api():
     auth = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-    api = tweepy.API(auth, 
-                    wait_on_rate_limit=True,
-                    wait_on_rate_limit_notify=True)
+    api = tweepy.API(auth,
+                     wait_on_rate_limit=True,
+                     wait_on_rate_limit_notify=True)
 
     try:
         api.verify_credentials()
-        print("Authentication OK")
-    except Exception as e:
-        logging.error("Error creating API", exc_info=True)
-        raise e
+        logging.info("Authentication OK")
+    except Exception:
+        raise Exception("Error during authentication, check your credentials")
     logging.info("API Created")
     return api

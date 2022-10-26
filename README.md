@@ -8,17 +8,35 @@ Twitter bot in Python using tweepy.
 - Auto follow your followers
 - Save Tweets in CSV format for text analysis
 
-## License
+## Usages
 
-```txt
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+```bash
+git clone https://github.com/Py-Contributors/twitterify
+cd twitterify
+pip install -r requirements.txt
+cp example.env .env
 ```
+
+- Get the api keys from [here](https://developer.twitter.com/en/docs/twitter-api/getting-started/getting-access-to-the-twitter-api)
+
+- AutoFollow.py - follow your followers automatically
+
+```bash
+python autoFollow.py
+```
+
+- AutoRetweet.py - retweet tweets with certain hashtag
+
+```bash
+python autoRetweet.py
+```
+
+- saveData.py - save tweets in csv format
+
+```bash
+python saveData.py
+```
+
 
 check more at [MIT License](/LICENSE)
 
