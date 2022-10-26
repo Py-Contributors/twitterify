@@ -39,5 +39,5 @@ def main(keywords: list):
 
 
 if __name__ == '__main__':
-    keywords = ["#Python", "#machinelearning", "#deeplearning", "#artificialintelligence"]
+    keywords = ["<your keywords>", "<your keywords>"]
     main(keywords)
